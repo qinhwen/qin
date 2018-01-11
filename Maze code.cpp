@@ -10,12 +10,12 @@
 int tx;
 int ty;
 
-typedef struct part{
+typedef struct part{    //记录坐标
 	int x;
 	int y;
 	int k;
 }part;
-typedef struct stack{
+typedef struct stack{   
 	part *stack;
 	int top;
 }stack;
@@ -27,13 +27,13 @@ typedef struct quene {
 }quene;
 quene q;
 
-void delay(void);
-void build(int a[][COLUMN]);
-void print(int a[][COLUMN]);
-void run(void);
-void set(int x,int y);
-bool chack(int a[][COLUMN],int b[][COLUMN],int x,int y);
-void save(int a[][COLUMN],int b[][COLUMN],int x,int y);
+void delay(void);//延时，产生动画效果
+void build(int a[][COLUMN]);//建立一个迷宫
+void print(int a[][COLUMN]);//将迷宫输出
+void run(void);//显示路径的动画效果
+void set(int x,int y);//定位光标的坐标
+bool chack(int a[][COLUMN],int b[][COLUMN],int x,int y);//广度搜索，找出最短路径
+void save(int a[][COLUMN],int b[][COLUMN],int x,int y);//将最短路径记录在栈中
 int main()
 {
 	int a[ROW][COLUMN];
@@ -152,15 +152,15 @@ void print(int a[][COLUMN])
 	{
 		for(int j=0;j<COLUMN;j++)
 		{
-			if(a[i][j]==7)	printf("��");
-			else if(a[i][j]==8) printf("��");
-			else if(a[i][j]==0)  printf("��");
-			else printf("��");
+			if(a[i][j]==7)	printf("¡î");
+			else if(a[i][j]==8) printf("¡ï");
+			else if(a[i][j]==0)  printf("¡õ");
+			else printf("¨€");
 		}
-		printf("��\n");
+		printf("¨€\n");
 	}
 	for(int i=0;i<41;i++)
-		printf("��");
+		printf("¨€");
 }
 
 void set(int x,int y)
